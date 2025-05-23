@@ -10,19 +10,13 @@ node_modules/
 /build
 /dist
 
-# Development
-.history/
-.vite/
-
-# Lighthouse
-.lh/
-
-# Environment files
-.env
+# Misc
+.DS_Store
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+.env
 
 # Logs
 npm-debug.log*
@@ -32,6 +26,31 @@ yarn-error.log*
 # Editor directories and files
 .idea/
 .vscode/
+*.swp
+*.swo
+
+# Vite
+.vite/
+
+# Lighthouse
+.lh/
+
+# Development
+.history/
+.lh/
+.vite/
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor directories and files
+.vscode/
+.idea/
 *.swp
 *.swo
 

@@ -10,19 +10,13 @@ node_modules/
 /build
 /dist
 
-# Development
-.history/
-.vite/
-
-# Lighthouse
-.lh/
-
-# Environment files
-.env
+# Misc
+.DS_Store
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+.env
 
 # Logs
 npm-debug.log*
@@ -35,11 +29,8 @@ yarn-error.log*
 *.swp
 *.swo
 
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db 
+# Vite
+.vite/
+
+# Lighthouse
+.lh/ 

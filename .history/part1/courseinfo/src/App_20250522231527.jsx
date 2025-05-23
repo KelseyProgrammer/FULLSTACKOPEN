@@ -13,21 +13,15 @@ const Part = (props) => {
 const Content = (props) => {
   return (
     <div>
-      <Part part={props.part[0]} />
-      <Part part={props.part[1]} />
-      <Part part={props.part[2]} />
+      <Part part={props.part1} exercises={props.exercises1} />
+      <Part part={props.part2} exercises={props.exercises2} />
+      <Part part={props.part3} exercises={props.exercises3} />
     </div>
   );
 };
 
 const Total = (props) => {
-  return (
-  <p>Number of exercises {
-    props.part[0].exercises +
-    props.part[1].exercises +
-    props.part[2].exercises }
-     </p>
-  );
+  return <p>Number of exercises {props.total}</p>;
 };
 
 const App = () => {
@@ -55,7 +49,5 @@ return (
     </div>
   );
 };
-
-
 
 export default App;
