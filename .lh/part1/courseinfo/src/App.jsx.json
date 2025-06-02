@@ -1,0 +1,98 @@
+{
+    "sourceFile": "part1/courseinfo/src/App.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 20,
+            "patches": [
+                {
+                    "date": 1747856334011,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1747856457786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,26 @@\n const App = () => {\n-  // const-definitions\n+  const course = 'Half Stack application development'\n+  const part1 = 'Fundamentals of React'\n+  const exercises1 = 10\n+  const part2 = 'Using props to pass data'\n+  const exercises2 = 7\n+  const part3 = 'State of a component'\n+  const exercises3 = 14\n \n   return (\n     <div>\n-      <Header course={course} />\n-      <Content ... />\n-      <Total ... />\n+      <h1>{course}</h1>\n+      <p>\n+        {part1} {exercises1}\n+      </p>\n+      <p>\n+        {part2} {exercises2}\n+      </p>\n+      <p>\n+        {part3} {exercises3}\n+      </p>\n+      <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>\n     </div>\n   )\n }\n \n"
+                },
+                {
+                    "date": 1747856483931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,19 +8,11 @@\n   const exercises3 = 14\n \n   return (\n     <div>\n-      <h1>{course}</h1>\n-      <p>\n-        {part1} {exercises1}\n-      </p>\n-      <p>\n-        {part2} {exercises2}\n-      </p>\n-      <p>\n-        {part3} {exercises3}\n-      </p>\n-      <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>\n+      <Header course={course} />\n+      <Content ... />\n+      <Total ... />\n     </div>\n   )\n }\n \n"
+                },
+                {
+                    "date": 1747856854075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,14 @@\n   const exercises2 = 7\n   const part3 = 'State of a component'\n   const exercises3 = 14\n \n+  const Header = (props) => {\n+    return (\n+      <h1>{props.course}</h1>\n+    )\n+  }\n+  \n   return (\n     <div>\n       <Header course={course} />\n       <Content ... />\n"
+                },
+                {
+                    "date": 1747857031558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,26 @@\n     return (\n       <h1>{props.course}</h1>\n     )\n   }\n+\n+  const Content = (props) => {\n+    return (\n+      <div>\n+      <p>\n+        {props.part1} {props.exercises1}\n+      </p>\n+      <p>\n+        {props.part2} {props.exercises2}\n+      </p>\n+      <p>\n+        {props.part3} {props.exercises3}\n+      </p>\n+      </div>\n+    )\n+  }\n   \n+  \n   return (\n     <div>\n       <Header course={course} />\n       <Content ... />\n"
+                },
+                {
+                    "date": 1747857052835,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,5 @@\n-const App = () => {\n-  const course = 'Half Stack application development'\n-  const part1 = 'Fundamentals of React'\n-  const exercises1 = 10\n-  const part2 = 'Using props to pass data'\n-  const exercises2 = 7\n-  const part3 = 'State of a component'\n-  const exercises3 = 14\n-\n-  const Header = (props) => {\n+const Header = (props) => {\n     return (\n       <h1>{props.course}</h1>\n     )\n   }\n@@ -27,8 +18,9 @@\n       </p>\n       </div>\n     )\n   }\n+\n   \n   \n   return (\n     <div>\n"
+                },
+                {
+                    "date": 1747857195002,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,10 +19,21 @@\n       </div>\n     )\n   }\n \n-  \n-  \n+  const Total = (props) => {\n+    return \n+      <p>Number of exercises {props.total} </p>\n+  }\n+\n+  const App = () => {\n+  const course = 'Half Stack application development'\n+  const part1 = 'Fundamentals of React'\n+  const exercises1 = 10\n+  const part2 = 'Using props to pass data'\n+  const exercises2 = 7\n+  const part3 = 'State of a component'\n+  const exercises3 = 14\n   return (\n     <div>\n       <Header course={course} />\n       <Content ... />\n"
+                },
+                {
+                    "date": 1747857262747,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,7 @@\n const Header = (props) => {\n-    return (\n-      <h1>{props.course}</h1>\n-    )\n-  }\n+    return <h1>{props.course}</h1>;\n+  };\n \n   const Content = (props) => {\n     return (\n       <div>\n@@ -16,15 +14,14 @@\n       <p>\n         {props.part3} {props.exercises3}\n       </p>\n       </div>\n-    )\n-  }\n+    );\n+  };\n \n   const Total = (props) => {\n-    return \n-      <p>Number of exercises {props.total} </p>\n-  }\n+    return <p>Number of exercises {props.total} </p>;\n+  };\n \n   const App = () => {\n   const course = 'Half Stack application development'\n   const part1 = 'Fundamentals of React'\n@@ -32,8 +29,9 @@\n   const part2 = 'Using props to pass data'\n   const exercises2 = 7\n   const part3 = 'State of a component'\n   const exercises3 = 14\n+  \n   return (\n     <div>\n       <Header course={course} />\n       <Content ... />\n"
+                },
+                {
+                    "date": 1747857277593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,10 +22,10 @@\n     return <p>Number of exercises {props.total} </p>;\n   };\n \n   const App = () => {\n-  const course = 'Half Stack application development'\n-  const part1 = 'Fundamentals of React'\n+  const course = 'Half Stack application development';\n+  const part1 = 'Fundamentals of React';\n   const exercises1 = 10\n   const part2 = 'Using props to pass data'\n   const exercises2 = 7\n   const part3 = 'State of a component'\n"
+                },
+                {
+                    "date": 1747857398302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,10 +33,14 @@\n   \n   return (\n     <div>\n       <Header course={course} />\n-      <Content ... />\n-      <Total ... />\n+      <Content \n+      part1={part1} exercise1={exercises1}\n+      part2={part2} exercise2={exercises2}\n+      part3={part3} exercise3={exercises3}\n+      />\n+      <Total total={exercises1 + exercises2 + exercises3} />\n     </div>\n   )\n }\n \n"
+                },
+                {
+                    "date": 1747857452054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,12 +25,12 @@\n   const App = () => {\n   const course = 'Half Stack application development';\n   const part1 = 'Fundamentals of React';\n   const exercises1 = 10\n-  const part2 = 'Using props to pass data'\n-  const exercises2 = 7\n-  const part3 = 'State of a component'\n-  const exercises3 = 14\n+  const part2 = 'Using props to pass data';\n+  const exercises2 = 7;\n+  const part3 = 'State of a component';\n+  const exercises3 = 14;\n   \n   return (\n     <div>\n       <Header course={course} />\n@@ -40,8 +40,8 @@\n       part3={part3} exercise3={exercises3}\n       />\n       <Total total={exercises1 + exercises2 + exercises3} />\n     </div>\n-  )\n-}\n+  );\n+};\n \n export default App\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1747857519762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,16 @@\n const Header = (props) => {\n     return <h1>{props.course}</h1>;\n   };\n \n+  const Part = (props) => {\n+    return (\n+      <p>\n+        {props.part} {props.exercises}\n+      </p>\n+    );\n+  };\n+  \n   const Content = (props) => {\n     return (\n       <div>\n       <p>\n"
+                },
+                {
+                    "date": 1747857750354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,17 +12,11 @@\n   \n   const Content = (props) => {\n     return (\n       <div>\n-      <p>\n-        {props.part1} {props.exercises1}\n-      </p>\n-      <p>\n-        {props.part2} {props.exercises2}\n-      </p>\n-      <p>\n-        {props.part3} {props.exercises3}\n-      </p>\n+      <Part part={props.part1} exercises={props.exercises1}/>\n+      <Part part={props.part2} exercises={props.exercises2}/>\n+      <Part part={props.part3} exercises={props.exercises3}/>\n       </div>\n     );\n   };\n \n"
+                },
+                {
+                    "date": 1747857865822,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,49 +1,49 @@\n const Header = (props) => {\n-    return <h1>{props.course}</h1>;\n-  };\n+  return <h1>{props.course}</h1>;\n+};\n \n-  const Part = (props) => {\n-    return (\n-      <p>\n-        {props.part} {props.exercises}\n-      </p>\n-    );\n-  };\n-  \n-  const Content = (props) => {\n-    return (\n-      <div>\n-      <Part part={props.part1} exercises={props.exercises1}/>\n-      <Part part={props.part2} exercises={props.exercises2}/>\n-      <Part part={props.part3} exercises={props.exercises3}/>\n-      </div>\n-    );\n-  };\n+const Part = (props) => {\n+  return (\n+    <p>\n+      {props.part} {props.exercises}\n+    </p>\n+  );\n+};\n \n-  const Total = (props) => {\n-    return <p>Number of exercises {props.total} </p>;\n-  };\n+const Content = (props) => {\n+  return (\n+    <div>\n+      <Part part={props.part1} exercises={props.exercises1} />\n+      <Part part={props.part2} exercises={props.exercises2} />\n+      <Part part={props.part3} exercises={props.exercises3} />\n+    </div>\n+  );\n+};\n \n-  const App = () => {\n+const Total = (props) => {\n+  return <p>Number of exercises {props.total}</p>;\n+};\n+\n\\ No newline at end of file\n+const App = () => {\n   const course = 'Half Stack application development';\n   const part1 = 'Fundamentals of React';\n-  const exercises1 = 10\n+  const exercises1 = 10;\n   const part2 = 'Using props to pass data';\n   const exercises2 = 7;\n   const part3 = 'State of a component';\n   const exercises3 = 14;\n-  \n+\n   return (\n     <div>\n       <Header course={course} />\n       <Content \n-      part1={part1} exercise1={exercises1}\n-      part2={part2} exercise2={exercises2}\n-      part3={part3} exercise3={exercises3}\n+        part1={part1} exercises1={exercises1}\n+        part2={part2} exercises2={exercises2}\n+        part3={part3} exercises3={exercises3}\n       />\n       <Total total={exercises1 + exercises2 + exercises3} />\n     </div>\n   );\n };\n \n-export default App\n+export default App;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1747969909683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,15 +25,20 @@\n };\n \n const App = () => {\n   const course = 'Half Stack application development';\n-  const part1 = 'Fundamentals of React';\n-  const exercises1 = 10;\n-  const part2 = 'Using props to pass data';\n-  const exercises2 = 7;\n-  const part3 = 'State of a component';\n-  const exercises3 = 14;\n-\n+  const part1 = {\n+    name:'Fundamentals of React',\n+    exercises: 10\n+  }\n+  const part2 = {\n+    name: 'Using props to pass data',\n+    exercises: 7\n+  }\n+  const part3 = {\n+  name:'State of a component',\n+  exercises: 14\n+  }\n   return (\n     <div>\n       <Header course={course} />\n       <Content \n"
+                },
+                {
+                    "date": 1747970031338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,21 +25,24 @@\n };\n \n const App = () => {\n   const course = 'Half Stack application development';\n-  const part1 = {\n+  const parts = [\n+  {\n     name:'Fundamentals of React',\n     exercises: 10\n-  }\n-  const part2 = {\n+  },\n+  {\n     name: 'Using props to pass data',\n     exercises: 7\n-  }\n-  const part3 = {\n-  name:'State of a component',\n+  },\n+  {\n+    name:'State of a component',\n   exercises: 14\n   }\n-  return (\n+]\n+\n+return (\n     <div>\n       <Header course={course} />\n       <Content \n         part1={part1} exercises1={exercises1}\n"
+                },
+                {
+                    "date": 1747970127388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,14 +43,10 @@\n \n return (\n     <div>\n       <Header course={course} />\n-      <Content \n-        part1={part1} exercises1={exercises1}\n-        part2={part2} exercises2={exercises2}\n-        part3={part3} exercises3={exercises3}\n-      />\n-      <Total total={exercises1 + exercises2 + exercises3} />\n+      <Content parts={parts} />\n+      <Total parts={parts} />\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1747970372478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,11 +12,11 @@\n \n const Content = (props) => {\n   return (\n     <div>\n-      <Part part={props.part1} exercises={props.exercises1} />\n-      <Part part={props.part2} exercises={props.exercises2} />\n-      <Part part={props.part3} exercises={props.exercises3} />\n+      <Part part={props.part[0]} />\n+      <Part part={props.part[1]} />\n+      <Part part={props.part[2]} />\n     </div>\n   );\n };\n \n@@ -49,5 +49,7 @@\n     </div>\n   );\n };\n \n+\n+\n export default App;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1747970527447,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,15 @@\n   );\n };\n \n const Total = (props) => {\n-  return <p>Number of exercises {props.total}</p>;\n+  return (\n+  <p>Number of exercises {\n+    props.part[0].exercises +\n+    props.part[1].exercises +\n+    props.part[2].exercises }\n+     </p>\n+  );\n };\n \n const App = () => {\n   const course = 'Half Stack application development';\n"
+                },
+                {
+                    "date": 1748894657262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,23 +30,21 @@\n   );\n };\n \n const App = () => {\n-  const course = 'Half Stack application development';\n-  const parts = [\n-  {\n-    name:'Fundamentals of React',\n+  const course = 'Half Stack application development'\n+  const part1 = {\n+    name: 'Fundamentals of React',\n     exercises: 10\n-  },\n-  {\n+  }\n+  const part2 = {\n     name: 'Using props to pass data',\n     exercises: 7\n-  },\n-  {\n-    name:'State of a component',\n-  exercises: 14\n   }\n-]\n+  const part3 = {\n+    name: 'State of a component',\n+    exercises: 14\n+  }\n \n return (\n     <div>\n       <Header course={course} />\n"
+                },
+                {
+                    "date": 1748894774691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,56 +4,57 @@\n \n const Part = (props) => {\n   return (\n     <p>\n-      {props.part} {props.exercises}\n+      {props.part.name} {props.part.exercises}\n     </p>\n   );\n };\n \n const Content = (props) => {\n   return (\n     <div>\n-      <Part part={props.part[0]} />\n-      <Part part={props.part[1]} />\n-      <Part part={props.part[2]} />\n+      <Part part={props.parts[0]} />\n+      <Part part={props.parts[1]} />\n+      <Part part={props.parts[2]} />\n     </div>\n   );\n };\n \n const Total = (props) => {\n   return (\n-  <p>Number of exercises {\n-    props.part[0].exercises +\n-    props.part[1].exercises +\n-    props.part[2].exercises }\n-     </p>\n+    <p>\n+      Number of exercises{' '}\n+      {props.parts[0].exercises +\n+        props.parts[1].exercises +\n+        props.parts[2].exercises}\n+    </p>\n   );\n };\n \n const App = () => {\n-  const course = 'Half Stack application development'\n-  const part1 = {\n-    name: 'Fundamentals of React',\n-    exercises: 10\n-  }\n-  const part2 = {\n-    name: 'Using props to pass data',\n-    exercises: 7\n-  }\n-  const part3 = {\n-    name: 'State of a component',\n-    exercises: 14\n-  }\n+  const course = 'Half Stack application development';\n+  const parts = [\n+    {\n\\ No newline at end of file\n+      name: 'Fundamentals of React',\n+      exercises: 10,\n+    },\n+    {\n+      name: 'Using props to pass data',\n+      exercises: 7,\n+    },\n+    {\n+      name: 'State of a component',\n+      exercises: 14,\n+    },\n+  ];\n \n-return (\n+  return (\n     <div>\n       <Header course={course} />\n       <Content parts={parts} />\n       <Total parts={parts} />\n     </div>\n   );\n };\n \n-\n-\n-export default App;\n+export default App;\n"
+                }
+            ],
+            "date": 1747856334011,
+            "name": "Commit-0",
+            "content": "const App = () => {\n  // const-definitions\n\n  return (\n    <div>\n      <Header course={course} />\n      <Content ... />\n      <Total ... />\n    </div>\n  )\n}\n\nexport default App"
+        }
+    ]
+}
